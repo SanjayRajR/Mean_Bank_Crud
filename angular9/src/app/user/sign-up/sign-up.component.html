@@ -1,0 +1,45 @@
+<div class="zoom">
+    <h2 class="underlineHover" style="font-size: 25px;" routerLink='/signup' routerLinkActive="active"> Sign Up</h2>
+    <div>
+        <img src="assets/img/users.png" id="icon" alt="User Icon" />
+    </div>
+    <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)" autocomplete="off">
+        <input autocomplete="new-password" type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }">
+        <!-- <div *ngIf="signUpForm.submitted && !fullName.valid">
+        <label class="validation-message">Full Name Required</label>
+    </div> -->
+
+        <input autocomplete="off" type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="abc@domain.com" required [pattern]="emailRegex" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+        <div *ngIf="signUpForm.submitted && email.errors">
+            <!-- <label *ngIf="email.errors.required" class="validation-message">Email required</label> -->
+            <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address</label>
+        </div>
+
+        <input autocomplete="off" type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password" required [pattern]="passwordRegex" minlength="8" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+        <div *ngIf="signUpForm.submitted && password.errors">
+            <!-- <label *ngIf="password.errors.required" class="validation-message">Password required</label> -->
+            <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 8 characters</label>
+            <label style="padding-right: 25px;padding-left: 25px;" *ngIf="password.errors.pattern" class="validation-message">Password must contain atleast one digit, one uppercase and a lowercase character</label>
+        </div>
+
+        <input autocomplete="off" type="text" #mobile="ngModel" [(ngModel)]="userService.selectedUser.mobile" name="mobile" placeholder="Mobile Number" required [pattern]="mobileRegex" minlength="10" maxlength="10" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !mobile.valid }">
+        <div *ngIf="signUpForm.submitted && mobile.errors">
+            <label *ngIf="mobile.errors.minlength||mobile.errors.maxlength" class="validation-message">Number must be 10 digits</label>
+        </div>
+
+        <div style="padding-right: 28px;">
+            <input type="submit" value="Create Account" style="background-color: #805AD5;">
+            <h2 class="underlineHover" style="font-size: 16px;padding-right: 20px;" routerLink='/login' routerLinkActive="active">Log In</h2>
+        </div>
+    </form>
+
+    <!-- Success message -->
+    <div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+    </div>
+
+    <!-- Error message -->
+    <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+    </div>
+</div>
