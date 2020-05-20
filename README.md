@@ -17,9 +17,8 @@ The angular 9 folder consists of all the frontend files that is used for interac
        3. nodemon app.js    
  If installed correctly, a successful message will be displayed and node js server will be running on http://localhost:3000 
  
-   In Terminal 2 
-       1. cd angular9
-       2. npm install         
-       3. ng serve -o         
-
-  If installed correctly, the angular server will be running on http://localhost:4200
+   In terminal 2                                              
+       1. cd angular9                                                                              
+       2. npm install                                                                                     
+       3. ng serve -o    
+ If installed correctly, a successful message will be displayed and node js server will be running on http://localhost:4200 
