@@ -2,11 +2,11 @@
 This app features a MEAN stack application which performs CRUD opeartions along with user-login authentication and password encryption using JWT Tokens.
 
 # Requirements
-To execute the application, you will need NODEjs, Mongodb and Angular CLI installed. These softwares must be installed before cloning this repo.
+To execute the application, you will need Nodejs, Mongodb and Angular CLI installed. These softwares must be installed before cloning this repo.
 
 # About
-The app is divide into 2 folders, server and angular9. The server consists of all the files required to perform the backend. 
-The angular 9 folder consists of all the frontend files that is used for interaction.
+The app is divided into 2 folders, server and angular9. The server consists of all the files required to perform the backend operations. 
+The angular 9 folder consists of all the frontend files that is used for user interaction.
 
 # Steps to run
 1.Open two terminals
